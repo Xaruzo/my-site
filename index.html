@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download Smart Health Record Management System</title>
+    <style>
+        /* CSS Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        header p {
+            margin: 0.5rem 0 0;
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .description {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 
+                0 4px 15px rgba(0, 0, 0, 0.1),
+                0 0 10px rgba(16, 65, 101, 0.3), /* #104165 glow */
+                0 0 20px rgba(40, 170, 220, 0.2);
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative; /* For border pseudo-element */
+            overflow: hidden; /* Clip the border effect */
+            border: none; /* Ensure no default border */
+        }
+
+        .description::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 10px;
+            padding: 2px;
+            background: linear-gradient(45deg, #28a745, #20c997, #28a745);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask-composite: xor;
+            -webkit-mask-composite: xor;
+            animation: rgb-border 2s linear infinite;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .description h2 {
+            color: #007bff;
+            margin-bottom: 1rem;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .feature {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: transform 0.3s ease;
+            position: relative; /* For border pseudo-element */
+            overflow: hidden; /* Clip the border effect */
+            border: none; /* Ensure no default border */
+        }
+
+        .feature::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 8px;
+            padding: 2px;
+            background: linear-gradient(45deg, #28a745, #20c997, #28a745);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask-composite: xor;
+            -webkit-mask-composite: xor;
+            animation: rgb-border 2s linear infinite;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .feature:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature h3 {
+            color: #007bff;
+            margin-bottom: 0.5rem;
+        }
+
+        .download-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin-bottom: 2rem;
+            position: relative; /* For border pseudo-element */
+            overflow: hidden; /* Clip the border effect */
+            border: none; /* Ensure no default border */
+        }
+
+        .download-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 10px;
+            padding: 2px;
+            background: linear-gradient(45deg, #28a745, #20c997, #28a745);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask-composite: xor;
+            -webkit-mask-composite: xor;
+            animation: rgb-border 2s linear infinite;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .download-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+            margin-top: 2rem;
+            position: relative; /* For shine pseudo-element positioning */
+            overflow: hidden; /* Clip the shine effect */
+            /* Static shine effect: glossy highlight */
+            border: none; /* Ensure no default border */
+        }
+
+        .download-btn::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(
+                ellipse at 30% 30%,
+                rgba(255, 255, 255, 0.4) 0%,
+                rgba(255, 255, 255, 0.1) 30%,
+                transparent 50%
+            );
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* RGB Border Effect */
+        .download-btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 50px;
+            padding: 2px;
+            background: linear-gradient(45deg, #28a745, #20c997, #28a745);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask-composite: xor;
+            -webkit-mask-composite: xor;
+            animation: rgb-border 2s linear infinite;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        @keyframes rgb-border {
+            0% {
+                background: linear-gradient(45deg, #28a745, #20c997, #28a745);
+            }
+            33% {
+                background: linear-gradient(45deg, #20c997, #28a745, #20c997);
+            }
+            66% {
+                background: linear-gradient(45deg, #28a745, #20c997, #28a745);
+            }
+            100% {
+                background: linear-gradient(45deg, #20c997, #28a745, #20c997);
+            }
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(40, 167, 69, 0.4);
+            color: white;
+        }
+
+        .system-requirements {
+            background: #e9ecef;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+        }
+
+        .system-requirements h3 {
+            margin-top: 0;
+            color: #495057;
+        }
+
+        .system-requirements ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .system-requirements li {
+            margin: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .system-requirements li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #28a745;
+            font-weight: bold;
+        }
+
+        footer {
+            background: #343a40;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            main {
+                padding: 0 0.5rem;
+            }
+
+            .description, .download-section {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Smart Health Record Management System</h1>
+        <p>Secure, Efficient, and User-Friendly Health Data Management</p>
+    </header>
+
+    <main>
+        <section class="description">
+            <h2>Welcome to Your Health Management Solution</h2>
+            <p>The Smart Health Record Management System (SHRMS) is a comprehensive desktop application built with Python and Flet, utilizing SQLite for robust data storage. It empowers healthcare professionals with role-based access (Admin, Doctor, Nurse) to manage patients, appointments, medical records, and billing securely. Features include user verification with ID uploads, activity logging, data backups/restores, and export/import capabilities for seamless workflows.</p>
+        </section>
+
+        <section class="features">
+            <div class="feature">
+                <h3>Patient & User Management</h3>
+                <p>Register, update, search, and delete patients and staff with pending approval workflows and ID verification for secure onboarding.</p>
+            </div>
+            <div class="feature">
+                <h3>Appointment Scheduling</h3>
+                <p>Schedule, update, and manage appointments with conflict detection, buffer times, and role-specific views for doctors and admins.</p>
+            </div>
+            <div class="feature">
+                <h3>Medical Records Handling</h3>
+                <p>Add, edit, soft-delete, recover, and permanently remove records with detailed history, prescriptions, and lab results tracking.</p>
+            </div>
+            <div class="feature">
+                <h3>Billing & Data Tools</h3>
+                <p>Generate bills, track payments, perform full database backups/restores, and export/import patient data in JSON format.</p>
+            </div>
+            <div class="feature">
+                <h3>Activity Logging & Dashboard</h3>
+                <p>Monitor recent activities, view real-time stats (patients, appointments, bills), and get a comprehensive overview for efficient system administration.</p>
+            </div>
+            <div class="feature">
+                <h3>User Profile & Security</h3>
+                <p>Manage profiles with status indicators (Active/Deactivated), unique IDs, role changes, password updates, and enhanced verification for robust security.</p>
+            </div>
+        </section>
+
+        <section class="download-section">
+            <h2>Ready to Get Started?</h2>
+            <p>Download the latest version (v1.0.0) – a standalone Python script ready to run on your system.</p>
+            <div class="system-requirements">
+                <h3>System Requirements</h3>
+                <ul>
+                    <li>Python 3.8+ with Flet, SQLite3, and ReportLab libraries</li>
+                    <li>Windows, macOS, or Linux</li>
+                    <li>2GB RAM minimum</li>
+                    <li>100MB free disk space</li>
+                    <li>Optional: Internet for initial image caching</li>
+                </ul>
+            </div>
+            <a href="https://mega.nz/folder/VN4x1SYB#yShMGelBYnpuwZttoKlW4Q" class="download-btn" id="downloadBtn" target="_blank">Download Now (Free)</a>
+            <p style="font-size: 0.9rem; color: #666; margin-top: 1rem;">Via MEGA.nz (Secure cloud storage – no account needed for download).</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Smart Health Record Management System. All rights reserved. | <a href="#" style="color: #adb5bd;">Privacy Policy</a> | <a href="#" style="color: #adb5bd;">Terms of Service</a></p>
+    </footer>
+
+    <script>
+        // JavaScript for Interactivity
+        document.addEventListener('DOMContentLoaded', function() {
+            const downloadBtn = document.getElementById('downloadBtn');
+            
+            // Simulate download click (replace with actual download logic)
+            downloadBtn.addEventListener('click', function(e) {
+                // e.preventDefault(); // Commented out for real link navigation
+                
+                // For demo: Show a confirmation dialog and simulate download
+                if (confirm('Download Smart Health Record Management System v1.0.0? (File size: ~50KB Python script + dependencies)')) {
+                    // In a real implementation, this would trigger a file download
+                    // For example: window.location.href = 'path/to/your/file.exe';
+                    
+                    // Demo: Alert success message
+                    alert('Opening MEGA folder – select and download your file!');
+                    
+                    // Optional: Track download event (e.g., with analytics)
+                    console.log('Download initiated');
+                } else {
+                    e.preventDefault(); // Prevent navigation if user cancels
+                }
+            });
+
+            // Smooth scroll for anchor links if needed
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
