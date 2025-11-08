@@ -1,0 +1,166 @@
+/* CSS Styles with Custom Color Theme */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7f9; /* Kept neutral light gray for readability */
+    color: #333;
+    line-height: 1.6;
+}
+
+header {
+    background: linear-gradient(135deg, #104165, #28aadc);
+    color: white;
+    text-align: center;
+    padding: 2rem 1rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+header p {
+    margin: 0.5rem 0 0;
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+main {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.description {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.description h2 {
+    color: #104165; /* Primary dark blue */
+    margin-bottom: 1rem;
+}
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.feature {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.feature:hover {
+    transform: translateY(-5px);
+}
+
+.feature h3 {
+    color: #28aadc; /* Secondary light blue */
+    margin-bottom: 0.5rem;
+}
+
+.download-section {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.download-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, #64ebb6, #28aadc); /* Accent green to light blue */
+    color: #104165; /* Dark blue text for contrast */
+    padding: 1rem 2rem;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(100, 235, 182, 0.3); /* Subtle shadow from accent */
+}
+
+.download-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(100, 235, 182, 0.4);
+    color: #104165; /* Maintain contrast on hover */
+    text-decoration: none;
+}
+
+.system-requirements {
+    background: #e9f5ff; /* Light tint of #28aadc for subtle background */
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+}
+
+.system-requirements h3 {
+    margin-top: 0;
+    color: #104165; /* Primary dark blue */
+}
+
+.system-requirements ul {
+    list-style: none;
+    padding: 0;
+}
+
+.system-requirements li {
+    margin: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.system-requirements li:before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #64ebb6; /* Accent green for checkmarks */
+    font-weight: bold;
+}
+
+footer {
+    background: #104165; /* Primary dark blue for footer */
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+}
+
+footer a {
+    color: #64ebb6; /* Accent green for footer links */
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    main {
+        padding: 0 0.5rem;
+    }
+
+    .description, .download-section {
+        padding: 1.5rem;
+    }
+}
