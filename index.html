@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Download Smart Health Record Management System</title>
     <style>
-        /* CSS Styles */
+        /* Enhanced CSS Styles with Animation Classes */
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
@@ -13,6 +13,7 @@
             background-color: #f4f7f9;
             color: #333;
             line-height: 1.6;
+            overflow-x: hidden; /* Prevent horizontal scroll during animations */
         }
 
         header {
@@ -21,6 +22,18 @@
             text-align: center;
             padding: 2rem 1rem;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            animation: slideDown 0.8s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
         }
 
         header h1 {
@@ -47,13 +60,21 @@
             border-radius: 10px;
             box-shadow: 
                 0 4px 15px rgba(0, 0, 0, 0.1),
-                0 0 10px rgba(16, 65, 101, 0.3), /* #104165 glow */
+                0 0 10px rgba(16, 65, 101, 0.3),
                 0 0 20px rgba(40, 170, 220, 0.2);
             margin-bottom: 2rem;
             text-align: center;
-            position: relative; /* For border pseudo-element */
-            overflow: hidden; /* Clip the border effect */
-            border: none; /* Ensure no default border */
+            position: relative;
+            overflow: hidden;
+            border: none;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+        }
+
+        .description.animate {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .description::after {
@@ -92,11 +113,26 @@
             border-radius: 8px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
             text-align: center;
-            transition: transform 0.3s ease;
-            position: relative; /* For border pseudo-element */
-            overflow: hidden; /* Clip the border effect */
-            border: none; /* Ensure no default border */
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Enhanced easing */
+            position: relative;
+            overflow: hidden;
+            border: none;
+            opacity: 0;
+            transform: translateY(50px) scale(0.95);
         }
+
+        .feature.animate {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        /* Staggered animation delay for features */
+        .feature:nth-child(1).animate { transition-delay: 0.1s; }
+        .feature:nth-child(2).animate { transition-delay: 0.2s; }
+        .feature:nth-child(3).animate { transition-delay: 0.3s; }
+        .feature:nth-child(4).animate { transition-delay: 0.4s; }
+        .feature:nth-child(5).animate { transition-delay: 0.5s; }
+        .feature:nth-child(6).animate { transition-delay: 0.6s; }
 
         .feature::after {
             content: '';
@@ -117,7 +153,8 @@
         }
 
         .feature:hover {
-            transform: translateY(-5px);
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
         }
 
         .feature h3 {
@@ -132,9 +169,17 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             text-align: center;
             margin-bottom: 2rem;
-            position: relative; /* For border pseudo-element */
-            overflow: hidden; /* Clip the border effect */
-            border: none; /* Ensure no default border */
+            position: relative;
+            overflow: hidden;
+            border: none;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+        }
+
+        .download-section.animate {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .download-section::after {
@@ -164,13 +209,12 @@
             border-radius: 50px;
             font-size: 1.2rem;
             font-weight: bold;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
             margin-top: 2rem;
-            position: relative; /* For shine pseudo-element positioning */
-            overflow: hidden; /* Clip the shine effect */
-            /* Static shine effect: glossy highlight */
-            border: none; /* Ensure no default border */
+            position: relative;
+            overflow: hidden;
+            border: none;
         }
 
         .download-btn::before {
@@ -188,9 +232,14 @@
             );
             pointer-events: none;
             z-index: 1;
+            transition: transform 0.6s ease-out;
+            transform: scale(0);
         }
 
-        /* RGB Border Effect */
+        .download-btn.animate::before {
+            transform: scale(1);
+        }
+
         .download-btn::after {
             content: '';
             position: absolute;
@@ -210,24 +259,20 @@
         }
 
         @keyframes rgb-border {
-            0% {
-                background: linear-gradient(45deg, #28a745, #20c997, #28a745);
-            }
-            33% {
-                background: linear-gradient(45deg, #20c997, #28a745, #20c997);
-            }
-            66% {
-                background: linear-gradient(45deg, #28a745, #20c997, #28a745);
-            }
-            100% {
-                background: linear-gradient(45deg, #20c997, #28a745, #20c997);
-            }
+            0% { background: linear-gradient(45deg, #28a745, #20c997, #28a745); }
+            33% { background: linear-gradient(45deg, #20c997, #28a745, #20c997); }
+            66% { background: linear-gradient(45deg, #28a745, #20c997, #28a745); }
+            100% { background: linear-gradient(45deg, #20c997, #28a745, #20c997); }
         }
 
         .download-btn:hover {
-            transform: translateY(-2px);
+            transform: translateY(-2px) scale(1.05);
             box-shadow: 0 6px 20px rgba(40, 167, 69, 0.4);
             color: white;
+        }
+
+        .download-btn:active {
+            transform: translateY(0) scale(0.98);
         }
 
         .system-requirements {
@@ -251,7 +296,22 @@
             margin: 0.5rem 0;
             padding-left: 1.5rem;
             position: relative;
+            opacity: 0;
+            transform: translateX(-20px);
+            transition: all 0.4s ease-out;
         }
+
+        .system-requirements li.animate {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Staggered delays for list items */
+        .system-requirements li:nth-child(1).animate { transition-delay: 0.2s; }
+        .system-requirements li:nth-child(2).animate { transition-delay: 0.3s; }
+        .system-requirements li:nth-child(3).animate { transition-delay: 0.4s; }
+        .system-requirements li:nth-child(4).animate { transition-delay: 0.5s; }
+        .system-requirements li:nth-child(5).animate { transition-delay: 0.6s; }
 
         .system-requirements li:before {
             content: '✓';
@@ -267,6 +327,14 @@
             text-align: center;
             padding: 1rem;
             margin-top: 2rem;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease-out;
+        }
+
+        footer.animate {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         /* Responsive Design */
@@ -286,100 +354,109 @@
     </style>
 </head>
 <body>
-    <header>
-        <h1>Smart Health Record Management System</h1>
-        <p>Secure, Efficient, and User-Friendly Health Data Management</p>
-    </header>
+    <div id="root"></div>
 
-    <main>
-        <section class="description">
-            <h2>Welcome to Your Health Management Solution</h2>
-            <p>The Smart Health Record Management System (SHRMS) is a comprehensive desktop application built with Python and Flet, utilizing SQLite for robust data storage. It empowers healthcare professionals with role-based access (Admin, Doctor, Nurse) to manage patients, appointments, medical records, and billing securely. Features include user verification with ID uploads, activity logging, data backups/restores, and export/import capabilities for seamless workflows.</p>
-        </section>
+    <!-- React CDN -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
-        <section class="features">
-            <div class="feature">
-                <h3>Patient & User Management</h3>
-                <p>Register, update, search, and delete patients and staff with pending approval workflows and ID verification for secure onboarding.</p>
-            </div>
-            <div class="feature">
-                <h3>Appointment Scheduling</h3>
-                <p>Schedule, update, and manage appointments with conflict detection, buffer times, and role-specific views for doctors and admins.</p>
-            </div>
-            <div class="feature">
-                <h3>Medical Records Handling</h3>
-                <p>Add, edit, soft-delete, recover, and permanently remove records with detailed history, prescriptions, and lab results tracking.</p>
-            </div>
-            <div class="feature">
-                <h3>Billing & Data Tools</h3>
-                <p>Generate bills, track payments, perform full database backups/restores, and export/import patient data in JSON format.</p>
-            </div>
-            <div class="feature">
-                <h3>Activity Logging & Dashboard</h3>
-                <p>Monitor recent activities, view real-time stats (patients, appointments, bills), and get a comprehensive overview for efficient system administration.</p>
-            </div>
-            <div class="feature">
-                <h3>User Profile & Security</h3>
-                <p>Manage profiles with status indicators (Active/Deactivated), unique IDs, role changes, password updates, and enhanced verification for robust security.</p>
-            </div>
-        </section>
+    <script type="text/babel">
+        const { useState, useEffect } = React;
 
-        <section class="download-section">
-            <h2>Ready to Get Started?</h2>
-            <p>Download the latest version (v1.0.0) – a standalone Python script ready to run on your system.</p>
-            <div class="system-requirements">
-                <h3>System Requirements</h3>
-                <ul>
-                    <li>Python 3.8+ with Flet, SQLite3, and ReportLab libraries</li>
-                    <li>Windows, macOS, or Linux</li>
-                    <li>2GB RAM minimum</li>
-                    <li>100MB free disk space</li>
-                    <li>Optional: Internet for initial image caching</li>
-                </ul>
-            </div>
-            <a href="https://mega.nz/folder/VN4x1SYB#yShMGelBYnpuwZttoKlW4Q" class="download-btn" id="downloadBtn" target="_blank">Download Now (Free)</a>
-            <p style="font-size: 0.9rem; color: #666; margin-top: 1rem;">Via MEGA.nz (Secure cloud storage – no account needed for download).</p>
-        </section>
-    </main>
+        // Main App Component
+        function App() {
+            const [isVisible, setIsVisible] = useState(false);
+            const [downloadConfirmed, setDownloadConfirmed] = useState(false);
 
-    <footer>
-        <p>&copy; 2025 Smart Health Record Management System. All rights reserved. | <a href="#" style="color: #adb5bd;">Privacy Policy</a> | <a href="#" style="color: #adb5bd;">Terms of Service</a></p>
-    </footer>
+            useEffect(() => {
+                // Trigger entrance animations on load
+                const timer = setTimeout(() => setIsVisible(true), 100);
+                return () => clearTimeout(timer);
+            }, []);
 
-    <script>
-        // JavaScript for Interactivity
-        document.addEventListener('DOMContentLoaded', function() {
-            const downloadBtn = document.getElementById('downloadBtn');
-            
-            // Simulate download click (replace with actual download logic)
-            downloadBtn.addEventListener('click', function(e) {
-                // e.preventDefault(); // Commented out for real link navigation
-                
-                // For demo: Show a confirmation dialog and simulate download
+            const handleDownloadClick = (e) => {
                 if (confirm('Download Smart Health Record Management System v1.0.0? (File size: ~50KB Python script + dependencies)')) {
-                    // In a real implementation, this would trigger a file download
-                    // For example: window.location.href = 'path/to/your/file.exe';
-                    
-                    // Demo: Alert success message
-                    alert('Opening MEGA folder – select and download your file!');
-                    
-                    // Optional: Track download event (e.g., with analytics)
                     console.log('Download initiated');
+                    setDownloadConfirmed(true);
+                    // Open the link in new tab
+                    window.open('https://mega.nz/folder/VN4x1SYB#yShMGelBYnpuwZttoKlW4Q', '_blank');
                 } else {
-                    e.preventDefault(); // Prevent navigation if user cancels
-                }
-            });
-
-            // Smooth scroll for anchor links if needed
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
                     e.preventDefault();
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                });
-            });
-        });
+                }
+            };
+
+            return (
+                <div>
+                    <header>
+                        <h1>Smart Health Record Management System</h1>
+                        <p>Secure, Efficient, and User-Friendly Health Data Management</p>
+                    </header>
+
+                    <main>
+                        <section className={`description ${isVisible ? 'animate' : ''}`}>
+                            <h2>Welcome to Your Health Management Solution</h2>
+                            <p>
+                                The Smart Health Record Management System (SHRMS) is a comprehensive desktop application built with Python and Flet, utilizing SQLite for robust data storage. 
+                                It empowers healthcare professionals with role-based access (Admin, Doctor, Nurse) to manage patients, appointments, medical records, and billing securely. 
+                                Features include user verification with ID uploads, activity logging, data backups/restores, and export/import capabilities for seamless workflows.
+                            </p>
+                        </section>
+
+                        <section className="features">
+                            {[
+                                { title: 'Patient & User Management', desc: 'Register, update, search, and delete patients and staff with pending approval workflows and ID verification for secure onboarding.' },
+                                { title: 'Appointment Scheduling', desc: 'Schedule, update, and manage appointments with conflict detection, buffer times, and role-specific views for doctors and admins.' },
+                                { title: 'Medical Records Handling', desc: 'Add, edit, soft-delete, recover, and permanently remove records with detailed history, prescriptions, and lab results tracking.' },
+                                { title: 'Billing & Data Tools', desc: 'Generate bills, track payments, perform full database backups/restores, and export/import patient data in JSON format.' },
+                                { title: 'Activity Logging & Dashboard', desc: 'Monitor recent activities, view real-time stats (patients, appointments, bills), and get a comprehensive overview for efficient system administration.' },
+                                { title: 'User Profile & Security', desc: 'Manage profiles with status indicators (Active/Deactivated), unique IDs, role changes, password updates, and enhanced verification for robust security.' }
+                            ].map((feature, index) => (
+                                <div key={index} className={`feature ${isVisible ? 'animate' : ''}`}>
+                                    <h3>{feature.title}</h3>
+                                    <p>{feature.desc}</p>
+                                </div>
+                            ))}
+                        </section>
+
+                        <section className={`download-section ${isVisible ? 'animate' : ''}`}>
+                            <h2>Ready to Get Started?</h2>
+                            <p>Download the latest version (v1.0.0) – a standalone Python script ready to run on your system.</p>
+                            <div className="system-requirements">
+                                <h3>System Requirements</h3>
+                                <ul>
+                                    <li className={isVisible ? 'animate' : ''}>Python 3.8+ with Flet, SQLite3, and ReportLab libraries</li>
+                                    <li className={isVisible ? 'animate' : ''}>Windows, macOS, or Linux</li>
+                                    <li className={isVisible ? 'animate' : ''}>2GB RAM minimum</li>
+                                    <li className={isVisible ? 'animate' : ''}>100MB free disk space</li>
+                                    <li className={isVisible ? 'animate' : ''}>Optional: Internet for initial image caching</li>
+                                </ul>
+                            </div>
+                            <a 
+                                href="https://mega.nz/folder/VN4x1SYB#yShMGelBYnpuwZttoKlW4Q" 
+                                className={`download-btn ${isVisible ? 'animate' : ''}`} 
+                                id="downloadBtn" 
+                                target="_blank"
+                                onClick={handleDownloadClick}
+                            >
+                                Download Now (Free)
+                            </a>
+                            <p style={{fontSize: '0.9rem', color: '#666', marginTop: '1rem'}}>
+                                Via MEGA.nz (Secure cloud storage – no account needed for download).
+                                {downloadConfirmed && <span style={{color: '#28a745'}}> ✓ Download started!</span>}
+                            </p>
+                        </section>
+                    </main>
+
+                    <footer className={isVisible ? 'animate' : ''}>
+                        <p>&copy; 2025 Smart Health Record Management System. All rights reserved. | <a href="#" style={{color: '#adb5bd'}}>Privacy Policy</a> | <a href="#" style={{color: '#adb5bd'}}>Terms of Service</a></p>
+                    </footer>
+                </div>
+            );
+        }
+
+        // Render the App
+        ReactDOM.render(<App />, document.getElementById('root'));
     </script>
 </body>
 </html>
